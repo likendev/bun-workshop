@@ -1,35 +1,42 @@
 # simple-chess
 
 
-Setup project
+## Setup project
 ```bash
 bun init
 ```
 
-Install dependencies
+## Install dependencies
 ```bash
 bun add express express-handlebars morgan uuid
 ```
 
-Install types
+## Install types
 ```bash
 bun add -d @types/express @types/express-handlebars
 bun add -d @types/morgan @types/uuid
 ```
 
-Create 2 directories
+## Create 2 directories
 
 ```bash
 mkdir static views
 ```
 
-To install dependencies:
+## SSE
+```bash
+bun add express-ts-sse
+```
+
+---
+
+## To install dependencies:
 
 ```bash
 bun install
 ```
 
-To run:
+## To run:
 
 ```bash
 bun run index.ts
