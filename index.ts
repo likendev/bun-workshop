@@ -24,7 +24,7 @@ app.post('/chess', express.urlencoded({ extended: true }),
 
         resp.status(200).render('chess', { gameId, orientation });
     }
-)
+);
 
 // GET /chess?gameId=<gameId>
 app.get('/chess',
@@ -33,10 +33,23 @@ app.get('/chess',
         const orientation = 'black';
         resp.status(200).render('chess', { gameId, orientation });
     }
+);
+
+// PATCH /chess/:gameId
+app.patch('/chess/:gameId', express.json(),
+    (req, resp) => {
+        // Get the gameId from the resource
+        const gameId = req.params.gameId;
+        const move = req.body;
+
+        console.info(`GameId: ${gameId}: `, move);
+
+        resp.status(201).json({ timestamp: (new Date()).getTime() });
+    }
 )
 
 // Serve files from static
-app.use(express.static(__dirname + '/static'))
+app.use(express.static(__dirname + '/static'));
 
 // Start express
 app.listen(port, () => {
